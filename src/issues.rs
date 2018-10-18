@@ -12,32 +12,46 @@ pub struct Issues {
     jira: Jira,
 }
 
-#[derive(Serialize, Debug)]
+#[derive(Serialize, Deserialize, Debug)]
 pub struct Assignee {
     pub name: String,
 }
 
-#[derive(Serialize, Debug)]
+#[derive(Serialize, Deserialize, Debug)]
 pub struct IssueType {
     pub id: String,
 }
 
-#[derive(Serialize, Debug)]
+#[derive(Serialize, Deserialize, Debug)]
 pub struct Priority {
     pub id: String,
+    #[serde(rename = "iconUrl")]
+    pub icon_url: String,
+    pub name: String,
+    #[serde(rename = "self")]
+    pub url: String,
 }
 
-#[derive(Serialize, Debug)]
+#[derive(Serialize, Deserialize, Debug)]
+pub struct CustomField {
+	pub id: String,
+    #[serde(rename = "self")]
+	pub url: String,
+	pub value: String,
+}
+
+
+#[derive(Serialize, Deserialize, Debug)]
 pub struct Project {
     pub key: String,
 }
 
-#[derive(Serialize, Debug)]
+#[derive(Serialize, Deserialize, Debug)]
 pub struct Component {
     pub name: String,
 }
 
-#[derive(Serialize, Debug)]
+#[derive(Serialize, Deserialize, Debug)]
 #[serde(rename_all = "camelCase")]
 pub struct Fields {
     pub assignee: Assignee,
