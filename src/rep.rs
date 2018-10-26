@@ -287,11 +287,8 @@ pub struct Status {
 
 #[derive(Deserialize, Debug)]
 pub struct Priority {
-    pub icon_url: String,
     pub id: String,
     pub name: String,
-    #[serde(rename = "self")]
-    pub self_link: String,
 }
 
 #[derive(Deserialize, Debug)]
